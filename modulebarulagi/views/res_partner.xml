@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+    <record id="inherit_res_partner_form" model="ir.ui.view">
+        <field name="name">inherit.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref='base.view_partner_form' />
+        <field name="arch" type="xml">
+            <field name="vat" position='after'>
+                <field name="is_instructor" />
+                <field name="is_student" />
+            </field>
+        </field>
+    </record>
+
+    <record id="res_partner_search_inherit" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.search</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref='base.view_res_partner_filter' />
+        <field name="arch" type="xml">
+
+                <field name="parent_id" position='after'>
+                    <filter name="student" string="Student" domain="[('is_student', '=', 'True')]"/>
+                    <filter name="instructor" string="Instructor" domain="[('is_instructor', '=', 'True')]"/>
+                </field>
+        </field>
+    </record>
+
+    <record id="student_action_window" model="ir.actions.act_window">
+        <field name="name">Student</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="student_menu_act"
+            name="Role"
+            parent="syaddad_academy_master_menu_categ"
+            action="student_action_window"
+            sequence="30"/>
+        
+    
+    </data>
+    
+
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <menuitem
+            id="syaddad_academy_menu_root"
+            name="Academy"
+            sequence="20"/>
+
+        <menuitem
+            id="syaddad_academy_master_menu_categ"
+            name="Data Master"
+            parent="syaddad_academy_menu_root"
+            sequence="20"/>
+    </data>
+    
+
+</odoo>
